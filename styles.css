@@ -56,44 +56,19 @@ header nav a:hover {
 ========================= */
 .hero,
 .category-hero {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.5), 
-      rgba(0, 0, 0, 0.5)
-    ),
-    url('images/photo3.jpg') no-repeat center center/cover;
-  color: #fff;
+  background-color: #f0f4f8; /* Light soft blue-gray background */
+  color: #333;
   text-align: center;
-  padding: 120px 20px;
+  padding: 100px 20px;
   font-size: 2.5rem;
   font-weight: bold;
-  position: relative;
 }
 
 .hero h2,
 .category-hero h2 {
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
-  border-radius: 8px;
-  display: inline-block;
-}
-
-/* Example Background Images for Category Hero */
-.landscapes-hero {
-  background-image: url('images/photo1.jpg');
-}
-
-.portraits-hero {
-  background-image: url('images/photo2.jpg');
-}
-
-.food-hero {
-  background-image: url('images/photo3.jpg');
-}
-
-.products-hero {
-  background-image: url('images/photo3.jpg');
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  color: #333;
 }
 
 /* =========================
@@ -257,8 +232,8 @@ footer {
 }
 
 .lightbox-content img {
-  max-width: 90vw;  /* Fit to viewport width */
-  max-height: 90vh; /* Fit to viewport height */
+  max-width: 90vw;
+  max-height: 90vh;
   width: auto;
   height: auto;
   border-radius: 8px;
