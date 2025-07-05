@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.innerHTML = '&times;';
   lightbox.appendChild(closeBtn);
 
+  const nextBtn = document.createElement('span');
+  nextBtn.classList.add('lightbox-next');
+  nextBtn.innerHTML = '&#10095;';
+  lightbox.appendChild(nextBtn);
+
+  const prevBtn = document.createElement('span');
+  prevBtn.classList.add('lightbox-prev');
+  prevBtn.innerHTML = '&#10094;';
+  lightbox.appendChild(prevBtn);
+
   let currentIndex = 0;
 
   function showImage(index) {
@@ -21,45 +31,32 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = index;
   }
 
-  // Click on images to open lightbox
+  // Open lightbox on image click
   images.forEach((image, index) => {
     image.addEventListener('click', () => showImage(index));
   });
 
-  // Close button
+  // Close lightbox on close button or clicking outside image
   closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
   });
-
-  // Click outside image closes lightbox
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
       lightbox.classList.remove('active');
     }
   });
 
-  // Next & Prev buttons
-  const nextBtn = document.createElement('span');
-  nextBtn.classList.add('lightbox-next');
-  nextBtn.innerHTML = '&#10095;'; // Right arrow
-  lightbox.appendChild(nextBtn);
-
-  const prevBtn = document.createElement('span');
-  prevBtn.classList.add('lightbox-prev');
-  prevBtn.innerHTML = '&#10094;'; // Left arrow
-  lightbox.appendChild(prevBtn);
-
+  // Next / Prev buttons
   nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length;
     showImage(currentIndex);
   });
-
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
   });
 
-  // Keyboard navigation
+  // Keyboard support
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
 

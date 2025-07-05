@@ -258,18 +258,28 @@ footer {
 /* =========================
    Lightbox Styles
 ========================= */
+/* Lightbox overlay */
 .lightbox-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
+  overflow: auto; /* Allow scrolling for large images */
+}
+
+/* Lightbox image - ORIGINAL SIZE */
+.lightbox-img {
+  display: block;
+  width: auto;  /* Don’t scale */
+  height: auto; /* Don’t scale */
+  max-width: none; /* Don’t constrain */
+  max-height: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-overlay.active {
