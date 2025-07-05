@@ -21,14 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = index;
   }
 
+  // Click on images to open lightbox
   images.forEach((image, index) => {
     image.addEventListener('click', () => showImage(index));
   });
 
+  // Close button
   closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
   });
 
+  // Click outside image closes lightbox
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
       lightbox.classList.remove('active');
@@ -38,12 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Next & Prev buttons
   const nextBtn = document.createElement('span');
   nextBtn.classList.add('lightbox-next');
-  nextBtn.innerHTML = '&#10095;';
+  nextBtn.innerHTML = '&#10095;'; // Right arrow
   lightbox.appendChild(nextBtn);
 
   const prevBtn = document.createElement('span');
   prevBtn.classList.add('lightbox-prev');
-  prevBtn.innerHTML = '&#10094;';
+  prevBtn.innerHTML = '&#10094;'; // Left arrow
   lightbox.appendChild(prevBtn);
 
   nextBtn.addEventListener('click', () => {
@@ -54,5 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+        break;
+      case 'ArrowLeft':
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+        break;
+      case 'Escape':
+        lightbox.classList.remove('active');
+        break;
+    }
   });
 });
