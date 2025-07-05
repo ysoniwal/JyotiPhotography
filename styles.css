@@ -336,3 +336,11 @@ footer {
     font-size: 1.2rem;
   }
 }
+
+.social-icon {
+  width: 16px;  /* Reduced from 20px */
+  height: 16px; /* Reduced from 20px */
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
