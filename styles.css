@@ -172,6 +172,9 @@ header nav a:hover {
 
 .photo-gallery img {
   width: 100%;
+  height: 250px; /* Fixed height for uniform rows */
+  object-fit: cover; /* Crop images nicely */
+  border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -186,11 +189,17 @@ header nav a:hover {
   .photo-gallery .grid {
     grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
   }
+  .photo-gallery img {
+    height: 200px; /* Slightly smaller height on tablet */
+  }
 }
 
 @media (max-width: 600px) {
   .photo-gallery .grid {
     grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+  .photo-gallery img {
+    height: 180px; /* Smaller height on mobile */
   }
 }
 
