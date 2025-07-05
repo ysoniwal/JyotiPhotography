@@ -164,7 +164,7 @@ header nav a:hover {
 .photo-gallery .grid {
   background-color: #f3e5f5;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* Fixed 4 photos per row */
   gap: 15px;
   padding: 40px 20px;
   border-radius: 8px;
@@ -179,6 +179,19 @@ header nav a:hover {
 .photo-gallery img:hover {
   transform: scale(1.03);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive grid for smaller screens */
+@media (max-width: 1024px) {
+  .photo-gallery .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-gallery .grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
 }
 
 /* =========================
