@@ -337,10 +337,22 @@ footer {
   }
 }
 
-.social-icon {
-  width: 16px;  /* Reduced from 20px */
-  height: 16px; /* Reduced from 20px */
-  margin-right: 5px;
-  vertical-align: middle;
+.social-link {
+  display: inline-flex; /* Keeps icon and text in one line */
+  align-items: center;  /* Vertically align icon with text */
+  gap: 6px;             /* Optional: small space between icon & text */
+  color: #6a5acd;       /* Keep your color scheme */
+  font-weight: bold;
+  text-decoration: none;
 }
 
+.social-link:hover {
+  color: #4b0082;
+}
+
+.social-icon {
+  width: 20px;  /* Small and elegant */
+  height: 20px;
+  display: inline-block; /* Ensure no weird line breaks */
+  vertical-align: middle;
+}
