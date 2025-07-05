@@ -274,13 +274,14 @@ footer {
 /* Lightbox image - ORIGINAL SIZE */
 .lightbox-img {
   display: block;
-  width: auto;  /* Don’t scale */
-  height: auto; /* Don’t scale */
-  max-width: none; /* Don’t constrain */
-  max-height: none;
+  max-width: 90vw; /* Scale down if too big */
+  max-height: 90vh;
+  width: auto;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
 }
+
 
 .lightbox-overlay.active {
   opacity: 1;

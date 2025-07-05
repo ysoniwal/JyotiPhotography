@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = index;
   }
 
-  // Open lightbox on image click
+  // Open lightbox
   images.forEach((image, index) => {
     image.addEventListener('click', () => showImage(index));
   });
 
-  // Close lightbox on close button or clicking outside image
+  // Close lightbox
   closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
   });
@@ -60,18 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
 
-    switch (e.key) {
-      case 'ArrowRight':
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage(currentIndex);
-        break;
-      case 'ArrowLeft':
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImage(currentIndex);
-        break;
-      case 'Escape':
-        lightbox.classList.remove('active');
-        break;
+    if (e.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    } else if (e.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    } else if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
     }
   });
 });
