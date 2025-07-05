@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showImage(index) {
     img.src = images[index].src;
-    lightbox.classList.add('active');
+    lightbox.classList.add('active'); // Show lightbox
     currentIndex = index;
   }
 
-  // Open lightbox
+  // Open lightbox on image click
   images.forEach((image, index) => {
     image.addEventListener('click', () => showImage(index));
   });
